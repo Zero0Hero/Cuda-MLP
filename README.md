@@ -9,6 +9,6 @@ homework of GPU course of USTC
 ![image](https://github.com/Zero0Hero/Cuda-MLP/assets/64831522/d7012fc0-99c3-401c-b17a-8b7bbef993d5)
 
 
-##可能的优化？
+## 可能的优化？
 以上，我们设计了两个流的优化，但是流内仍有优化空间，我们将单个任务中的两次矩阵相乘拆开看，如图5，即当进行1-matrix multi add1后1-matrix multi add2执行时，完全可以使用1-matrix multi add1的硬件执行下一次1-matrix multi add1（3-matrix multi add1），即我们拥有的硬件只要空闲，就应有输入数据投喂进来。在Xilinx HLS（High-Level Synthesis）中，可以构造如下图所示的流水线（函数级Pipelining），但在本次作业内还为找到类似那样显式的流水线构造，后续将会继续探索
 ![image](https://github.com/Zero0Hero/Cuda-MLP/assets/64831522/06bf54de-ad13-4274-8908-0a4062b498ae)
